@@ -42,7 +42,7 @@ public class InnerEnemy extends Actor
         int y = getY();
         
         if (direction == 1){
-            if (time < (276 / speed)){
+            if (time < (240 / speed)){
                 setLocation(x, y-speed);
             }
             else{
@@ -50,7 +50,7 @@ public class InnerEnemy extends Actor
             }
         }
         if (direction == 3){
-            if (time < (276 / speed)){
+            if (time < (240 / speed)){
                 setLocation(x, y+speed);
             }
             else{
@@ -59,7 +59,7 @@ public class InnerEnemy extends Actor
         }
        
         if (direction == 4){
-            if (time < (276 / speed)){
+            if (time < (240 / speed)){
                 move(speed);
             }
             else{
@@ -68,7 +68,7 @@ public class InnerEnemy extends Actor
         }
        
         if (direction == 2){
-            if (time < (276 / speed)){
+            if (time < (240 / speed)){
                 move(-speed);
             }
             else{

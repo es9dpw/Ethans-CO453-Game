@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class OuterEnemy extends Actor
 {
     private String direction;
-    private int speed = 2;
+    private int speed = 1;
     /**
      * Act - do whatever the OuterEnemy wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.

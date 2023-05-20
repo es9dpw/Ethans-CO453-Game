@@ -92,6 +92,7 @@ public class Player extends Actor
                 ((MyWorld) getWorld()).power();
                 setImage(powered);
                 setLocation(160, 160);
+                start = true;
             }
         }
         
