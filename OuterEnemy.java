@@ -9,7 +9,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class OuterEnemy extends Actor
 {
     private String direction;
-    private int speed = 1;
     /**
      * Act - do whatever the OuterEnemy wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -45,19 +44,19 @@ public class OuterEnemy extends Actor
         int y = getY();
         
         if (direction == "up"){
-            setLocation(x, y-speed);
+            setLocation(x, y-((MyWorld) getWorld()).outerEnemySpeed);
         }
        
         if (direction == "down"){
-            setLocation(x, y+speed);
+            setLocation(x, y+((MyWorld) getWorld()).outerEnemySpeed);
         }
        
         if (direction == "right"){
-            move(speed);
+            move(((MyWorld) getWorld()).outerEnemySpeed);
         }
        
         if (direction == "left"){
-            move(-speed);
+            move(-((MyWorld) getWorld()).outerEnemySpeed);
         }
     }
 }

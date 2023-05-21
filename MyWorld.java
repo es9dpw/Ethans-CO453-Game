@@ -20,11 +20,17 @@ public class MyWorld extends World
     private Item item;
     private int side;
     private int spawn;
-    public int lives;
+    public int lives = 3;
     public int powerups = 0;
-    public int wave;
+    public int wave = 1;
     public int powerTime;
     public int enemies;
+    public int outerEnemySpeed = 1;
+    public int innerEnemySpeed = 1;
+    public int itemNumber = 1;
+    public int itemOne = 5;
+    public int itemTwo = 5;
+    public boolean sideRepeat;
     
     /**
      * Constructor for objects of class MyWorld.
@@ -75,12 +81,10 @@ public class MyWorld extends World
         createItem();
         
         showText("Control the character with the arrowkeys to avoid", 300, 10);
-        showText("the enemies and grab the items to power up", 300, 30);
-        showText("and kill the enemies", 300, 50);
+        showText("the enemies and walls, grab the items to", 300, 30);
+        showText("power up and then kill the enemies!", 300, 50);
         
-        lives = 3;
         showText("Lives: " + lives, 500, 80);
-        wave = 1;
         showText("Wave: " + wave + "/5", 490, 120);
     }
     
@@ -104,22 +108,38 @@ public class MyWorld extends World
     }
     
     public void createItem(){
-        side = Greenfoot.getRandomNumber(4);
         spawn = (Greenfoot.getRandomNumber(504)) + 48;
+        sideRepeat = true;
         item = new Item();
-        if (side == 0){
-            addObject(item, spawn, 24);
+        while (sideRepeat == true){
+            side = Greenfoot.getRandomNumber(4);
+            
+            if ((side == 0) && (itemOne != 0) && (itemTwo != 0)){
+                addObject(item, spawn, 24);
+                sideRepeat = false;
+            }
+            if ((side == 1) && (itemOne != 1) && (itemTwo != 1)){
+                addObject(item, 24, spawn);
+                sideRepeat = false;
+            }
+            if ((side == 2) && (itemOne != 2) && (itemTwo != 2)){
+                addObject(item, 576, spawn);
+                sideRepeat = false;
+            }
+            if ((side == 3) && (itemOne != 3) && (itemTwo != 3)){
+                addObject(item, spawn, 576);
+                sideRepeat = false;
+            }
         }
-        if (side == 1){
-            addObject(item, 24, spawn);
+        
+        if (itemNumber == 1){
+            itemOne = side;
         }
-        if (side == 2){
-            addObject(item, 576, spawn);
-        }
-        if (side == 3){
-            addObject(item, spawn, 576);
+        else if (itemNumber == 2){
+            itemTwo = side;
         }
         showText("Powerups: " + powerups + "/3", 470, 100);
+        itemNumber++;
     }
     
     public void removeText()
@@ -160,9 +180,53 @@ public class MyWorld extends World
         showText("Powered Up For " + powerTime, 440, 180);
     }
     
+    public void updatePowerTime()
+    {
+        showText("Powered Up For " + powerTime, 440, 180);
+    }
+    
+    public void unPower(){
+        openStart();
+        setBackground(unPowered);
+        powerups = 0;
+        showText("Powerups: " + powerups + "/3", 470, 100);
+        showText(null, 440, 180);
+        itemNumber = 1;
+        itemOne = 5;
+        itemTwo = 5;
+        createItem();
+    }
+    
+    public void nextWave(){
+        wave++;
+        showText("Wave: " + wave + "/5", 490, 120);
+        
+        if (wave == 2){
+            outerEnemySpeed = 2;
+        }
+        if (wave == 3){
+            innerEnemySpeed = 2;
+        }
+        if (wave == 4){
+            outerEnemySpeed = 3;
+        }
+        if (wave == 5){
+            innerEnemySpeed = 3;
+        }
+        
+        createEnemies();
+    }
+    
     public void endGame()
     {
         showText("Game Over: You have Lost!", 300, 300);
+        Greenfoot.stop();
+    }
+    
+    public void wonGame()
+    {
+        showText(null, 440, 180);
+        showText("Congratulations, you have won!", 300, 300);
         Greenfoot.stop();
     }
 }

@@ -10,7 +10,6 @@ public class InnerEnemy extends Actor
 {
     private int direction = 0;
     private int time = 0;
-    private int speed = 1;
     /**
      * Act - do whatever the InnerEnemy wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -42,37 +41,37 @@ public class InnerEnemy extends Actor
         int y = getY();
         
         if (direction == 1){
-            if (time < (240 / speed)){
-                setLocation(x, y-speed);
+            if (time < (240 / ((MyWorld) getWorld()).innerEnemySpeed)){
+                setLocation(x, y-((MyWorld) getWorld()).innerEnemySpeed);
             }
             else{
-                setLocation(x, y+speed);
+                setLocation(x, y+((MyWorld) getWorld()).innerEnemySpeed);
             }
         }
         if (direction == 3){
-            if (time < (240 / speed)){
-                setLocation(x, y+speed);
+            if (time < (240 / ((MyWorld) getWorld()).innerEnemySpeed)){
+                setLocation(x, y+((MyWorld) getWorld()).innerEnemySpeed);
             }
             else{
-                setLocation(x, y-speed);
+                setLocation(x, y-((MyWorld) getWorld()).innerEnemySpeed);
             }
         }
        
         if (direction == 4){
-            if (time < (240 / speed)){
-                move(speed);
+            if (time < (240 / ((MyWorld) getWorld()).innerEnemySpeed)){
+                move(((MyWorld) getWorld()).innerEnemySpeed);
             }
             else{
-                move(-speed);
+                move(-((MyWorld) getWorld()).innerEnemySpeed);
             }
         }
        
         if (direction == 2){
-            if (time < (240 / speed)){
-                move(-speed);
+            if (time < (240 / ((MyWorld) getWorld()).innerEnemySpeed)){
+                move(-((MyWorld) getWorld()).innerEnemySpeed);
             }
             else{
-                move(speed);
+                move(((MyWorld) getWorld()).innerEnemySpeed);
             }
         }
         

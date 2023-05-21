@@ -11,7 +11,8 @@ public class Player extends Actor
     private boolean start = true;
     GreenfootImage unPowered = new GreenfootImage("Player.png");
     GreenfootImage powered = new GreenfootImage("PoweredPlayer.png");
-    
+    private boolean isPowered = false;
+    public int timer;
     /**
      * Act - do whatever the Player wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -20,7 +21,11 @@ public class Player extends Actor
     {
         move();
         collision();
-        start(); 
+        start();
+        
+        if (isPowered == true){
+            Countdown();
+        }
     }
     
     public void move(){
@@ -93,6 +98,9 @@ public class Player extends Actor
                 setImage(powered);
                 setLocation(160, 160);
                 start = true;
+                isPowered = true;
+                timer = 60;
+                ((MyWorld) getWorld()).powerTime = 10;
             }
         }
         
@@ -142,6 +150,37 @@ public class Player extends Actor
            ((MyWorld) getWorld()).closeStart();
            start = false;
            ((MyWorld) getWorld()).removeText();
+        }
+    }
+    
+    public void Countdown(){
+        if (((MyWorld) getWorld()).enemies <= 0) {
+            if (((MyWorld) getWorld()).wave >= 5){
+                ((MyWorld) getWorld()).wonGame();
+            }
+            else{
+                ((MyWorld) getWorld()).unPower();
+                setImage(unPowered);
+                setLocation(160, 160);
+                start = true;
+                isPowered = false;
+                ((MyWorld) getWorld()).nextWave();
+            }
+        }
+        else if (((MyWorld) getWorld()).powerTime <= 0){
+            ((MyWorld) getWorld()).unPower();
+            setImage(unPowered);
+            setLocation(160, 160);
+            start = true;
+            isPowered = false;
+        }
+        else if (timer > 0){
+            timer--;
+        }
+        else if (((MyWorld) getWorld()).powerTime > 0){
+            ((MyWorld) getWorld()).powerTime--;
+            ((MyWorld) getWorld()).updatePowerTime();
+            timer = 60;
         }
     }
 }
