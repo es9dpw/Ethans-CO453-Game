@@ -1,9 +1,9 @@
 #Greenfoot project file
 class.ClosedStarterSquare.image=Square.png
-class.InnerEnemy.image=Enemy.png
+class.InnerEnemy.image=EnemyUp.png
 class.Item.image=Item.png
 class.MyWorld.image=bluerock.jpg
-class.OuterEnemy.image=Enemy.png
+class.OuterEnemy.image=EnemyUp.png
 class.Player.image=Player.png
 class.Square.image=Square.png
 class.StarterSquare.image=StarterSquare.png
