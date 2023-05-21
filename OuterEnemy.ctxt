@@ -1,13 +1,16 @@
 #BlueJ class context
 comment0.target=OuterEnemy
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ OuterEnemy\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ outerEnemy\ class\ is\ the\ enemies\ that\ move\ around\ the\ edge\ of\ the\ world.\r\n
 comment1.params=
 comment1.target=void\ act()
-comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ OuterEnemy\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment1.text=\r\n\ This\ is\ the\ act\ method\ which\ will\ run\ everytime\ the\ game\ acts,\ its\ main\ job\ is\ to\ call\ other\ methods.\r\n
 comment2.params=
 comment2.target=void\ changeDirection()
+comment2.text=\r\n\ This\ is\ the\ changeDirection\ method\ which\ will\ check\ if\ the\ enemy\ has\ reached\ the\ end\ of\ its\ currect\ path,\ and\ needs\ to\ turn\ to\ the\ next.\r\n
 comment3.params=
 comment3.target=void\ move()
+comment3.text=\r\n\ This\ is\ the\ move\ method\ which\ will\ check\ which\ way\ the\ enemy\ should\ be\ moving,\ and\ then\ move\ it\ in\ that\ direction\ by\ the\ speed\ from\ the\ world.\r\n
 comment4.params=
 comment4.target=void\ image()
+comment4.text=\r\n\ This\ is\ the\ image\ method\ which\ will\ change\ the\ enemy\ image\ depending\ on\ which\ direction\ they\ are\ going,\ and\ if\ the\ player\ is\ powered\ up\ or\ not.\r\n
 numComments=5

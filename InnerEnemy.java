@@ -1,10 +1,7 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 /**
- * Write a description of class InnerEnemy here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * The InnerEnemy class is the enemy that moves around in the middle of the world.
  */
 public class InnerEnemy extends Actor
 {
@@ -20,8 +17,7 @@ public class InnerEnemy extends Actor
     GreenfootImage poweredLeft = new GreenfootImage("ScaredEnemyLeft.png");
     GreenfootImage poweredRight = new GreenfootImage("ScaredEnemyRight.png");
     /**
-     * Act - do whatever the InnerEnemy wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * This is the act method which will run everytime the game acts, its main job is to call other methods.
      */
     public void act()
     {
@@ -30,6 +26,9 @@ public class InnerEnemy extends Actor
         image();
     }
     
+    /**
+     * This is the changeDirection method which will check if the enemy has reached the middle of the world so it can turn and move away again.
+     */
     public void changeDirection()
     {
         int x = getX();
@@ -45,6 +44,10 @@ public class InnerEnemy extends Actor
         }
     }
     
+    /**
+     * This is the move method which will check which way the enemy should be moving, and then move it in that direction by the speed from the world.
+     * It will also update the imageState variable to allow the image of the enemy to be correctly changed.
+     */
     public void move()
     {
         int x = getX();
@@ -96,6 +99,9 @@ public class InnerEnemy extends Actor
         time++;
     }
     
+    /**
+     * This is the image method which will change the enemy image depending on which direction they are going, and if the player is powered up or not.
+     */
     public void image(){
         if (((MyWorld) getWorld()).powerups <= 2){
             if (imageState == "up"){

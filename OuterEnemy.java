@@ -1,10 +1,7 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 /**
- * Write a description of class OuterEnemy here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * The outerEnemy class is the enemies that move around the edge of the world.
  */
 public class OuterEnemy extends Actor
 {
@@ -18,8 +15,7 @@ public class OuterEnemy extends Actor
     GreenfootImage poweredLeft = new GreenfootImage("ScaredEnemyLeft.png");
     GreenfootImage poweredRight = new GreenfootImage("ScaredEnemyRight.png");
     /**
-     * Act - do whatever the OuterEnemy wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * This is the act method which will run everytime the game acts, its main job is to call other methods.
      */
     public void act()
     {
@@ -28,6 +24,9 @@ public class OuterEnemy extends Actor
         move();
     }
     
+    /**
+     * This is the changeDirection method which will check if the enemy has reached the end of its currect path, and needs to turn to the next.
+     */
     public void changeDirection()
     {
         int x = getX();
@@ -47,6 +46,9 @@ public class OuterEnemy extends Actor
         }
     }
     
+    /**
+     * This is the move method which will check which way the enemy should be moving, and then move it in that direction by the speed from the world.
+     */
     public void move()
     {
         int x = getX();
@@ -69,6 +71,9 @@ public class OuterEnemy extends Actor
         }
     }
     
+    /**
+     * This is the image method which will change the enemy image depending on which direction they are going, and if the player is powered up or not.
+     */
     public void image(){
         if (((MyWorld) getWorld()).powerups <= 2){
             if (direction == "up"){

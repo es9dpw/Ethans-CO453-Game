@@ -1,15 +1,19 @@
 #BlueJ class context
 comment0.target=Player
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Player\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ Player\ class\ is\ the\ class\ that\ the\ player\ will\ control.\r\n
 comment1.params=
 comment1.target=void\ act()
-comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Player\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment1.text=\r\n\ This\ is\ the\ act\ method\ which\ will\ run\ everytime\ the\ game\ acts,\ its\ main\ job\ is\ to\ call\ other\ methods.\r\n
 comment2.params=
 comment2.target=void\ move()
+comment2.text=\r\n\ This\ is\ the\ move\ method\ which\ will\ allow\ the\ player\ to\ move\ ip,\ down,\ left\ and\ right.\r\n
 comment3.params=
 comment3.target=void\ collision()
+comment3.text=\r\n\ This\ is\ the\ collision\ method\ which\ will\ check\ if\ the\ player\ is\ colliding\ with\ the\ walls,\ enemies\ or\ items\ and\ will\ put\ them\ back\ to\ the\ start\r\n\ and\ call\ the\ minusLife\ method\ if\ they\ hit\ a\ wall\ or\ enemy\ when\ unpowered,\ collect\ items\ and\ trigger\ the\ powered\ mode\ when\ 3\ items\ have\ been\r\n\ collected,\ and\ kill\ enemies\ when\ in\ powered\ mode.\r\n
 comment4.params=
 comment4.target=void\ start()
+comment4.text=\r\n\ This\ is\ the\ start\ method\ which\ will\ check\ if\ the\ player\ has\ left\ the\ starting\ area,\ and\ then\ call\ the\ closeStart\ and\ removeText\ method\ if\ it\ has.\r\n
 comment5.params=
 comment5.target=void\ Countdown()
+comment5.text=\r\n\ This\ is\ the\ countdown\ method\ which\ will\ check\ if\ all\ the\ enemies\ have\ been\ killed\ while\ powered\ up,\ and\ start\ a\ 10\ second\ countdown\ when\ entering\r\n\ the\ powered\ state,\ and\ then\ ending\ the\ powered\ state\ if\ all\ the\ enemies\ are\ killed\ or\ if\ the\ countdown\ reaches\ 0.\r\n
 numComments=6

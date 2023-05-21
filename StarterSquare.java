@@ -1,19 +1,8 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 /**
- * Write a description of class StarterSquare here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * The StarterSquare class doesn't contain any code as it is created by the world and collision is handled by the Player Class.
  */
 public class StarterSquare extends Actor
 {
-    /**
-     * Act - do whatever the StarterSquare wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
-    {
-        // Add your action code here.
-    }
 }

@@ -1,13 +1,16 @@
 #BlueJ class context
 comment0.target=InnerEnemy
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ InnerEnemy\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ InnerEnemy\ class\ is\ the\ enemy\ that\ moves\ around\ in\ the\ middle\ of\ the\ world.\r\n
 comment1.params=
 comment1.target=void\ act()
-comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ InnerEnemy\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment1.text=\r\n\ This\ is\ the\ act\ method\ which\ will\ run\ everytime\ the\ game\ acts,\ its\ main\ job\ is\ to\ call\ other\ methods.\r\n
 comment2.params=
 comment2.target=void\ changeDirection()
+comment2.text=\r\n\ This\ is\ the\ changeDirection\ method\ which\ will\ check\ if\ the\ enemy\ has\ reached\ the\ middle\ of\ the\ world\ so\ it\ can\ turn\ and\ move\ away\ again.\r\n
 comment3.params=
 comment3.target=void\ move()
+comment3.text=\r\n\ This\ is\ the\ move\ method\ which\ will\ check\ which\ way\ the\ enemy\ should\ be\ moving,\ and\ then\ move\ it\ in\ that\ direction\ by\ the\ speed\ from\ the\ world.\r\n\ It\ will\ also\ update\ the\ imageState\ variable\ to\ allow\ the\ image\ of\ the\ enemy\ to\ be\ correctly\ changed.\r\n
 comment4.params=
 comment4.target=void\ image()
+comment4.text=\r\n\ This\ is\ the\ image\ method\ which\ will\ change\ the\ enemy\ image\ depending\ on\ which\ direction\ they\ are\ going,\ and\ if\ the\ player\ is\ powered\ up\ or\ not.\r\n
 numComments=5

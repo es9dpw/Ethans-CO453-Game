@@ -1,10 +1,7 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 
 /**
- * Write a description of class MyWorld here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * The MyWorld class is the world for the game.
  */
 public class MyWorld extends World
 {
@@ -33,12 +30,10 @@ public class MyWorld extends World
     public boolean sideRepeat;
     
     /**
-     * Constructor for objects of class MyWorld.
-     * 
+     * Constructor for objects of class MyWorld. Creates all the game objects such as the walls and player as well as displaying text to the player.
      */
     public MyWorld()
     {    
-        // Create a new world with 600x600 cells with a cell size of 1x1 pixels.
         super(600, 600, 1);
         
         wall = new Wall();
@@ -88,6 +83,9 @@ public class MyWorld extends World
         showText("Wave: " + wave + "/5", 490, 120);
     }
     
+    /**
+     * This is the createEnemies method which will add enemies to the world at the start of the game and everytime all current enemies are killed
+     */
     public void createEnemies(){
         outerEnemy = new OuterEnemy();
         addObject(outerEnemy, 24, 24);
@@ -107,6 +105,11 @@ public class MyWorld extends World
         enemies = 5;
     }
     
+    /**
+     * This is the createItem method which will create and item in the world at the start of the game and when an item is collected. The mthod picks a
+     * coordinate for the item to spawnb on and then picks a random number to determine which side the item will spawn on, and then that side cannot
+     * be picked again for the current wave.
+     */
     public void createItem(){
         spawn = (Greenfoot.getRandomNumber(504)) + 48;
         sideRepeat = true;
@@ -142,6 +145,9 @@ public class MyWorld extends World
         itemNumber++;
     }
     
+    /**
+     * This is the removeText method which will remove the explantion text from the top of the screen once the player has left the starting area.
+     */
     public void removeText()
     {
         showText(null, 300, 10);
@@ -149,28 +155,45 @@ public class MyWorld extends World
         showText(null, 300, 50);
     }
     
+    /**
+     * This is the closeStart method which will add an object ovber the starting area to close it off from the player once they have left the start area.
+     */
     public void closeStart()
     {
         closedStarterSquare = new ClosedStarterSquare();
         addObject(closedStarterSquare, 160, 160);
     }
     
+    /**
+     * This is the openStart method which will remove the object covering the starting area to open it to the player once they have been hit or power up.
+     */
     public void openStart()
     {
         removeObject(closedStarterSquare);
     }
     
+    /**
+     * This is the minusLife method which will remove a life each time the player gets hit and will also call the endGame method when the player runs
+     * out of lives.
+     */
     public void minusLife()
     {
+        openStart();
         if (powerups < 3){
             lives--;
             showText("Lives: " + lives, 500, 80);
             if (lives <= 0){
-            endGame();
+                endGame();
+            }
+            else {
+                Greenfoot.playSound("Hit.mp3");
             }
         }
     }
     
+    /**
+     * This is the power method which will change the background image and siplay the intial powered up time once the player powers up.
+     */
     public void power()
     {
         openStart();
@@ -180,11 +203,17 @@ public class MyWorld extends World
         showText("Powered Up For " + powerTime, 440, 180);
     }
     
+    /**
+     * This is the updatePowerTimer method which will change the power up timer every second when called from the Player class.
+     */
     public void updatePowerTime()
     {
         showText("Powered Up For " + powerTime, 440, 180);
     }
     
+    /**
+     * This is the unPower method which will call the return the game to its unpowered state, calling openStart and changing the background image back.
+     */
     public void unPower(){
         openStart();
         setBackground(unPowered);
@@ -197,6 +226,9 @@ public class MyWorld extends World
         createItem();
     }
     
+    /**
+     * This is the nextWave method which will increase the speed of the enemies after they have all been killed, and then spawn more enemies.
+     */
     public void nextWave(){
         wave++;
         showText("Wave: " + wave + "/5", 490, 120);
@@ -217,15 +249,23 @@ public class MyWorld extends World
         createEnemies();
     }
     
+    /**
+     * This is the endGame method which will end the game once the player has lost all their lives.
+     */
     public void endGame()
     {
+        Greenfoot.playSound("Lose.mp3");
         showText("Game Over: You have Lost!", 300, 300);
         Greenfoot.stop();
     }
     
+    /**
+     * This is the wonGame method which will end the game once the player has cleared all 5 waves.
+     */
     public void wonGame()
     {
         showText(null, 440, 180);
+        Greenfoot.playSound("Win.mp3");
         showText("Congratulations, you have won!", 300, 300);
         Greenfoot.stop();
     }
